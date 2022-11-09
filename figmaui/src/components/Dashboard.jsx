@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Typography,
@@ -8,6 +9,7 @@ import {
   Avatar,
   Select,
   IconButton,
+  Stack,
 } from "@mui/material";
 import GroupRoundedIcon from "@mui/icons-material/GroupRounded";
 import AddBoxRoundedIcon from "@mui/icons-material/AddBoxRounded";
@@ -29,6 +31,7 @@ import AddIcon from '@mui/icons-material/Add';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const style = {
     position: "absolute",
     top: "50%",
@@ -204,6 +207,18 @@ const Dashboard = () => {
 
   return (
     <>
+    <Stack direction="row" spacing={87}>
+    <Typography variant="h2" style={{fontWeight:"bold", marginTop:"20px", marginLeft:"10%"}}>Dashboard</Typography>
+    <Button
+          // m={"1rem"}
+          style={{height:"40px",marginTop:"3%"}}
+          variant="contained"
+          onClick={() => navigate("/")}
+        >
+          Logout
+        </Button>
+    </Stack>
+    
       <Box style={{ width: "80%", margin: "auto" }}>
         <Typography
           clas="topText"
