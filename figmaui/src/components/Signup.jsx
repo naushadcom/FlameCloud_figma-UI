@@ -61,7 +61,7 @@ function Signup() {
           <br />
           <Input
             style={{
-              backgroundColor: "green",
+              backgroundColor: "blue",
 			  fontSize:"20px",
               fontWeight: "bold",
               color: "white",

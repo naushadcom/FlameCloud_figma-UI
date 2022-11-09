@@ -16,7 +16,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 // import Plans from "./Plans";
-import ItemLists from "./ItemLists";
+// import ItemLists from "./ItemLists";
 import { styled, alpha } from "@mui/material/styles";
 import Menu, { MenuProps } from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -27,7 +27,7 @@ import ArchiveIcon from "@mui/icons-material/Archive";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import "./Plans.module.css";
+// import "./Plans.module.css";
 
 const Dashboard = () => {
   const style = {
@@ -62,6 +62,9 @@ const Dashboard = () => {
   const [salesDataModal, setSalesDataModal] = useState([]);
 
   console.log(marketingDataModal, designDataModa, salesDataModal);
+
+
+
   const addMarketingData = (newData) => {
     setMarketingData([...marketingData, newData]);
   };
@@ -78,9 +81,6 @@ const Dashboard = () => {
     setPointerData([...pointerData, newPointer]);
   };
 
-  // const deleteCategory = (value) => {
-  //     setCategories(categories.filter((item) => item !== value))
-  // }
 
   const handleOpen = () => {
     setOpen(true);
@@ -126,21 +126,18 @@ const Dashboard = () => {
 
   const teamMates = [
     {
-      name: "Aryan talwar",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiojqfxTt5goerxFtlvh1oPpbQRngoARtEFktExOlq&s",
+      name: "md",
+      img: "https://yt3.ggpht.com/ahIlOKEYP4MBeS-f-gvkb2CxJgknA7WQQsbi3y3JzFW9I1rcPGr803gYA6kCV6vEQZWst0nvhg=s88-c-k-c0x00ffffff-no-rj-mo",
     },
     {
-      name: "Karan",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiojqfxTt5goerxFtlvh1oPpbQRngoARtEFktExOlq&s",
+      name: "Naushad",
+      img: "https://yt3.ggpht.com/ahIlOKEYP4MBeS-f-gvkb2CxJgknA7WQQsbi3y3JzFW9I1rcPGr803gYA6kCV6vEQZWst0nvhg=s88-c-k-c0x00ffffff-no-rj-mo",
     },
     {
-      name: "Kishan",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiojqfxTt5goerxFtlvh1oPpbQRngoARtEFktExOlq&s",
-    },
-    {
-      name: "Rishi",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiojqfxTt5goerxFtlvh1oPpbQRngoARtEFktExOlq&s",
-    },
+      name: "Ahamed",
+      img: "https://yt3.ggpht.com/ahIlOKEYP4MBeS-f-gvkb2CxJgknA7WQQsbi3y3JzFW9I1rcPGr803gYA6kCV6vEQZWst0nvhg=s88-c-k-c0x00ffffff-no-rj-mo",
+    }
+    
   ];
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -210,11 +207,13 @@ const Dashboard = () => {
         <Typography
           clas="topText"
           style={{
-            fontSize: "14px",
-            color: "grey",
+            fontSize: "16px",
+            // color: "grey",
+            textAlign:"left",
             fontSyle: "italic",
-            marginTop: "120px",
-            lineHeight: "19.12px",
+            marginTop: "100px",
+
+            // lineHeight: "19.12px",
           }}
         >
           SOP
@@ -227,6 +226,8 @@ const Dashboard = () => {
               left: "120px",
               top: "144px",
               borderRadis: "",
+              textAlign:"left",
+              fontWeight:"bold"
             }}
             className="actionText"
           >
@@ -239,6 +240,8 @@ const Dashboard = () => {
               justifyContent: "space-around",
             }}
           >
+
+          //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
             {/* First Modal */}
             <Button onClick={handleOpen} variant="outlined">
               <GroupRoundedIcon /> Manage Access
@@ -405,7 +408,7 @@ const Dashboard = () => {
               aria-describedby="parent-modal-description"
             >
               <Box sx={{ ...style, width: 400 }}>
-                <h2 id="parent-modal-title">Plan name</h2>
+                <h2 id="parent-modal-title">Plan Name</h2>
                 <p id="parent-modal-description">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
                   auctor. Sit amet, consectetur adipiscing consectetur
@@ -429,7 +432,7 @@ const Dashboard = () => {
                   onChange={(e) => setCategoryHandler(e.target.value)}
                   style={{
                     border: "1px solid #e6f1f9",
-                    width: "90%",
+                    width: "60%",
                     height: "45px",
                     fontStyle: "normal",
                     fontSize: "18px",

@@ -48,7 +48,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <Input  style={{
-              backgroundColor: "green",
+              backgroundColor: "blue",
               fontWeight: "bold",
 			  fontSize:"20px",
               color: "white",
