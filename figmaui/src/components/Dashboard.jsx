@@ -15,8 +15,6 @@ import Checkbox from "@mui/material/Checkbox";
 import Autocomplete from "@mui/material/Autocomplete";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
-// import Plans from "./Plans";
-// import ItemLists from "./ItemLists";
 import { styled, alpha } from "@mui/material/styles";
 import Menu, { MenuProps } from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -27,7 +25,8 @@ import ArchiveIcon from "@mui/icons-material/Archive";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-// import "./Plans.module.css";
+import AddIcon from '@mui/icons-material/Add';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const Dashboard = () => {
   const style = {
@@ -65,68 +64,70 @@ const Dashboard = () => {
 
 
 
-  const addMarketingData = (newData) => {
+  const marketDataAdd = (newData) => {
     setMarketingData([...marketingData, newData]);
   };
 
-  const addDesignData = (newData) => {
+  const designDataAdd = (newData) => {
     setDesignData([...designData, newData]);
   };
 
-  const addSalesData = (newData) => {
+  const salesDataAdd = (newData) => {
     setSalesData([...salesData, newData]);
   };
 
-  const addPointerData = (newPointer) => {
+  const pointerDataAdd = (newPointer) => {
     setPointerData([...pointerData, newPointer]);
   };
 
 
-  const handleOpen = () => {
+  const handlePlanOpen = () => {
     setOpen(true);
   };
-  const handleOpen1 = () => {
+  const handlePlanOpen1 = () => {
     setOpen1(true);
   };
-  const handleOpen2 = () => {
+  const handlePlanOpen2 = () => {
     setOpen2(true);
   };
-  const handleClose = () => {
+  const handlePlanClose = () => {
     setOpen(false);
   };
-  const handleClose1 = () => {
+  const handlePlanClose1 = () => {
     setOpen1(false);
   };
-  const handleClose2 = () => {
+  const handlePlanClose2 = () => {
     setOpen2(false);
   };
 
-  const handleSecondModalClick = () => {
+  //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
+  
+  const handleModalSecond = () => {
     if (categoryHandler == "Marketing") {
-      addMarketingData(planName);
-      handleOpen2();
+      marketDataAdd(planName);
+      handlePlanOpen2();
     } else if (categoryHandler == "Design") {
-      addDesignData(planName);
-      handleOpen2();
+      designDataAdd(planName);
+      handlePlanOpen2();
     } else if (categoryHandler == "Sales") {
-      addSalesData(planName);
-      handleOpen2();
+      salesDataAdd(planName);
+      handlePlanOpen2();
     } else {
       alert("Please Choose Department");
     }
   };
   console.log(marketingData, designData, salesData);
 
-  const handleThirdModalClick = () => {
-    addPointerData(pointerName);
-    handleClose2();
-    handleClose1();
+  const handleModalThird = () => {
+    pointerDataAdd(pointerName);
+    handlePlanClose2();
+    handlePlanClose1();
     console.log(pointerData);
   };
 
   const teamMates = [
     {
-      name: "md",
+      name: "Md",
       img: "https://yt3.ggpht.com/ahIlOKEYP4MBeS-f-gvkb2CxJgknA7WQQsbi3y3JzFW9I1rcPGr803gYA6kCV6vEQZWst0nvhg=s88-c-k-c0x00ffffff-no-rj-mo",
     },
     {
@@ -140,19 +141,19 @@ const Dashboard = () => {
     
   ];
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open5 = Boolean(anchorEl);
+  const [linkEl, setlinkEl] = React.useState(null);
+  const open5 = Boolean(linkEl);
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+    setlinkEl(event.currentTarget);
   };
-  const handleClose5 = () => {
-    setAnchorEl(null);
+  const handlePlanClose5 = () => {
+    setlinkEl(null);
   };
 
   const StyledMenu = styled((props : MenuProps) => (
     <Menu
       elevation={0}
-      anchorOrigin={{
+      linkOrigin={{
         vertical: "bottom",
         horizontal: "right",
       }}
@@ -192,13 +193,13 @@ const Dashboard = () => {
     },
   }));
 
-  const [marketingDataStatus, setMarketingDataStatus] = useState("");
+  const [marketStatusInfo, setmarketStatusInfo] = useState("");
   const handleMarketingDataEdit = () => {
     const updatedData = prompt("Please Enter New Category");
     if (updatedData !== null) {
-      setMarketingDataStatus(updatedData);
+      setmarketStatusInfo(updatedData);
     }
-    // handleClose5()
+    // handlePlanClose5()
   };
 
   return (
@@ -241,14 +242,14 @@ const Dashboard = () => {
             }}
           >
 
-          //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          
             {/* First Modal */}
-            <Button onClick={handleOpen} variant="outlined">
+            <Button onClick={handlePlanOpen} variant="outlined">
               <GroupRoundedIcon /> Manage Access
             </Button>{" "}
             <Modal
               open={open}
-              onClose={handleClose}
+              onClose={handlePlanClose}
               aria-labelledby="parent-modal-title"
               aria-describedby="parent-modal-description"
             >
@@ -382,13 +383,13 @@ const Dashboard = () => {
                   )}
                 />{" "}
                 <br />
-                <Button onClick={() => handleClose()} color="error">
+                <Button onClick={() => handlePlanClose()} color="error">
                   Cancel
                 </Button>{" "}
                 <Button
                   onClick={() => {
                     alert("You Have Succesfully Added Peoples");
-                    handleClose();
+                    handlePlanClose();
                   }}
                   variant="contained"
                   disableElevation
@@ -398,12 +399,12 @@ const Dashboard = () => {
               </Box>
             </Modal>
             {/* Second Modal For Adding New Plans */}
-            <Button onClick={handleOpen1} variant="contained">
+            <Button onClick={handlePlanOpen1} variant="contained">
               <AddBoxRoundedIcon variant="contained" /> New Plan
             </Button>
             <Modal
               open={open1}
-              onClose={handleClose1}
+              onClose={handlePlanClose1}
               aria-labelledby="parent-modal-title"
               aria-describedby="parent-modal-description"
             >
@@ -445,69 +446,13 @@ const Dashboard = () => {
                 </select>
                 <br />
                 <br />
-                <Button onClick={() => handleClose1()} color="error">
+                <Button onClick={() => handlePlanClose1()} color="error">
                   Cancel
                 </Button>{" "}
                 <Button
                   variant="contained"
                   disableElevation
-                  onClick={() => handleSecondModalClick()}
-                >
-                  Create
-                </Button>
-              </Box>
-            </Modal>
-            {/* Third Modal For Pointer Name */}
-            <Modal
-              open={open2}
-              onClose={handleClose2}
-              aria-labelledby="parent-modal-title"
-              aria-describedby="parent-modal-description"
-            >
-              <Box sx={{ ...style, width: 400 }}>
-                <h2 id="parent-modal-title">Pointer name</h2>
-                <p id="parent-modal-description">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                  auctor. Sit amet, consectetur adipiscing consectetur
-                  adipiscing elit.
-                </p>
-                <TextField
-                  onChange={(e) => setPointerName(e.target.value)}
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="Pointer"
-                  label="Pointer Name "
-                  name="Name"
-                  autoComplete="Pointer Name"
-                  autoFocus
-                  placeholder="Name Pointer"
-                />{" "}
-                <br /> <br />
-                <br />
-                <br />
-                <select
-                  onChange={(e) => setPointerHandler(e.target.value)}
-                  style={{
-                    border: "1px solid #e6f1f9",
-                    width: "90%",
-                    height: "45px",
-                    fontStyle: "normal",
-                    fontSize: "18px",
-                  }}
-                >
-                  <option value="">Department</option>
-                  <option value="Marketing">Marketing</option>
-                  <option value="Design">Design</option>
-                  <option value="Sales">Sales</option>
-                </select>
-                <Button onClick={() => handleClose2()} color="error">
-                  Cancel
-                </Button>{" "}
-                <Button
-                  variant="contained"
-                  disableElevation
-                  onClick={() => handleThirdModalClick()}
+                  onClick={() => handleModalSecond()}
                 >
                   Create
                 </Button>
@@ -516,13 +461,11 @@ const Dashboard = () => {
           </Box>
         </Box>
       </Box>
-      {/* <ItemLists>
-    {categories && categories.map((value) => <Plans value={value} pointerData={pointerData} />)}
-    </ItemLists> */}
+     
 
       <Box className="dropDiv">
-        <Box class="dropdown">
-          <span>{marketingDataStatus ? marketingDataStatus : "Marketing"}</span>
+        <Box class="dropdown" style={{border:"1px solid blue",backgroundColor:"lightblue",width:"88%"}}>
+          <Typography variant="h5" >{marketStatusInfo ? marketStatusInfo : "Marketing"}</Typography>
 
           <Box class="dropdown-content">
             {marketingData.length > 0 && marketingData.map((el) => <p>{el}</p>)}
@@ -542,26 +485,26 @@ const Dashboard = () => {
               onClick={handleClick}
               endIcon={<KeyboardArrowDownIcon />}
             >
-              <Avatar src="https://image.shutterstock.com/image-illustration/menu-three-dots-line-icon-260nw-2200198353.jpg" />
+              <MoreVertIcon/>
             </Button>
             <StyledMenu
               id="demo-customized-menu"
               MenuListProps={{
                 "aria-labelledby": "demo-customized-button",
               }}
-              anchorEl={anchorEl}
+              linkEl={linkEl}
               open={open5}
-              onClose={handleClose5}
+              onClose={handlePlanClose5}
             >
               <MenuItem disableRipple>
                 <p onClick={() => alert("Workign")}>Edit</p>Edit
               </MenuItem>
-              <MenuItem onClick={handleClose5} disableRipple>
+              <MenuItem onClick={handlePlanClose5} disableRipple>
                 Manage Access
               </MenuItem>
               <Divider sx={{ my: 0.5 }} />
               <MenuItem
-                onClick={handleClose5}
+                onClick={handlePlanClose5}
                 disableRipple
                 style={{ color: "red" }}
               >
@@ -573,8 +516,8 @@ const Dashboard = () => {
         </Box>
         <br />
 
-        <Box class="dropdown">
-          <span>Design</span>
+        <Box class="dropdown" style={{border:"1px solid blue",backgroundColor:"lightblue",width:"88%"}}>
+          <Typography variant="h5" >Design</Typography>
 
           <Box class="dropdown-content">
             {designData.length > 0 && designData.map((el) => <p>{el}</p>)}
@@ -594,26 +537,28 @@ const Dashboard = () => {
               onClick={handleClick}
               endIcon={<KeyboardArrowDownIcon />}
             >
-              <Avatar src="https://image.shutterstock.com/image-illustration/menu-three-dots-line-icon-260nw-2200198353.jpg" />
+              
+              <MoreVertIcon/>
+
             </Button>
             <StyledMenu
               id="demo-customized-menu"
               MenuListProps={{
                 "aria-labelledby": "demo-customized-button",
               }}
-              anchorEl={anchorEl}
+              linkEl={linkEl}
               open={open5}
-              onClose={handleClose5}
+              onClose={handlePlanClose5}
             >
-              <MenuItem onClick={handleClose5} disableRipple>
+              <MenuItem onClick={handlePlanClose5} disableRipple>
                 Edit
               </MenuItem>
-              <MenuItem onClick={handleClose5} disableRipple>
+              <MenuItem onClick={handlePlanClose5} disableRipple>
                 Manage Access
               </MenuItem>
               <Divider sx={{ my: 0.5 }} />
               <MenuItem
-                onClick={handleClose5}
+                onClick={handlePlanClose5}
                 disableRipple
                 style={{ color: "red" }}
               >
@@ -625,8 +570,8 @@ const Dashboard = () => {
         </Box>
         <br />
 
-        <Box class="dropdown">
-          <span>Sales</span>
+        <Box class="dropdown" style={{border:"1px solid blue",backgroundColor:"lightblue",width:"88%"}}>
+          <Typography variant="h5" >Sales</Typography>
 
           <Box class="dropdown-content">
             {salesData.length > 0 && salesData.map((el) => <p>{el}</p>)}
@@ -647,26 +592,26 @@ const Dashboard = () => {
               onClick={handleClick}
               endIcon={<KeyboardArrowDownIcon />}
             >
-              <Avatar src="https://image.shutterstock.com/image-illustration/menu-three-dots-line-icon-260nw-2200198353.jpg" />
+              <MoreVertIcon/>
             </Button>
             <StyledMenu
               id="demo-customized-menu"
               MenuListProps={{
                 "aria-labelledby": "demo-customized-button",
               }}
-              anchorEl={anchorEl}
+              linkEl={linkEl}
               open={open5}
-              onClose={handleClose5}
+              onClose={handlePlanClose5}
             >
-              <MenuItem onClick={handleClose5} disableRipple>
+              <MenuItem onClick={handlePlanClose5} disableRipple>
                 Edit
               </MenuItem>
-              <MenuItem onClick={handleClose5} disableRipple>
+              <MenuItem onClick={handlePlanClose5} disableRipple>
                 Manage Access
               </MenuItem>
               <Divider sx={{ my: 0.5 }} />
               <MenuItem
-                onClick={() => handleClose5}
+                onClick={() => handlePlanClose5}
                 disableRipple
                 style={{ color: "red" }}
               >
